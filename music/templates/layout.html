@@ -1,0 +1,19 @@
+<!doctype html>
+<title>My Application</title>
+<link rel='shortcut icon' href="{{ url_for('static', filename='img/favicon.png') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.min.js') }}"></script>
+<ul class=flashes>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+    <div>
+        <span class="close">&times</span>
+        <li>{{ message }}</li>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+</ul>
+{% block body %}{% endblock %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/app/app.js') }}"></script>
